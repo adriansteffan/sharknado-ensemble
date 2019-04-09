@@ -1,0 +1,4 @@
+data/
+docker-images/
+out/
+docker-compose.yml
