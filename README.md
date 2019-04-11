@@ -1,5 +1,7 @@
 # Sharknado Ensemble
 
+#TODO ABOUT
+
 ## Prerequisites
 
 The ensemble was developed and tested on a Ubuntu 18.04, so it is strongly recommend that you use that.
@@ -7,8 +9,14 @@ The ensemble was developed and tested on a Ubuntu 18.04, so it is strongly recom
 Recent versions of the following packages are required to run this project:
 ```
 python3 
+python3-pip
 docker
 docker-compose
+```
+
+If you do not have them already, simply paste the below into your console:
+```
+ sudo apt-get python3 python3-pip docker docker-compose
 ```
 
 
@@ -26,7 +34,7 @@ docker-compose
     ``` 
     ./setup_second.sh 
     ```
-7. TODO
+
 
 
 # Detailed Setup
@@ -34,9 +42,9 @@ docker-compose
 
 #TODO
 
-## Creating the docker images from the competition VMs
+## (Optional) Creating the docker images from the competition VMs using premade files
 
-This repository holds the files required to build your own dockerfiles if you have acess to the Clickbait 2017 VMS on [TIRA](https://www.tira.io/task/clickbait-detection/). They are located in their corresponding folders in [image-buildfiles](image-buildfiles). 
+This repository holds the files required to build your own docker images if you have acess to the Clickbait 2017 VMS on [TIRA](https://www.tira.io/task/clickbait-detection/). They are located in their corresponding folders in [image-buildfiles](image-buildfiles). 
 Replace "VMNAME" with the username of the entry you are trying to containerize.
 
 1. Download the /home/VMNAME folder from the VM
@@ -50,22 +58,68 @@ Replace "VMNAME" with the username of the entry you are trying to containerize.
     docker save -o VMNAME-image docker-VMNAME
     ```
 
+## (Optional) Creating your own buildfiles from the competition VMs
 
+Alternatively, you can create the Dockerfile and the requirements.txt yourself. This is advisable if you either want to customize them or if they are simply missing from this repository.
 
+1. SSH into the vm in question and cd into the home/VMNAME directory.
+2. Create a requirements.txt, there are mainly two ways to achieve this:
+    * ```pip(3) freeze > requirements.txt``` (Not recommended, as it leads to lots of unnecessary errors)
+    * Using pipreqs: 
+        ```
+        pip(3) install pipreqs
+        python(3)
+        >>> import pipreqs
+        >>> pipreqs.__file__
+        ```
+        This will print out the filepath of the package. There should be a "bin" directory on the same level as  "lib". cd in there and run
+        ```
+        ./pipreqs /path/to/project/root
+        ```
+        A tailored requirements.txt will be created at the project root. 
 
+3. Choose one of the Dockerfiles in [image-buildfiles](image-buildfiles) based on the python version used and fit it to the VM you are working with. The CMD line requires the command that ultimately runs the model, you can find it on the TIRA dashboard of the VM.
 
-## Creating the docker-compose.yml
+After creating both of these files, you can continue the same as above and start fixing any errors that come up during the building of the docker image. Be warned though, as this step can be rather tedious.
 
-Choose the models for the ensemble and put their names into [models_active.txt](models_active.txt).
-
-After that, run
-```
-python3 create_compose_yml.py
-```
-
-## Training the ensemble
-## Using the classifier
+# Preperation
 
 Create a "data" directory in the root of the project and add your instances.jsonl and the media directory (download them from [the challange page](https://www.clickbait-challenge.org/)).
 
-Creat a directory called "out" in the root of the project. 
+Creat the directories "out" and "sharknado_models" in the root of the project.
+
+To install the python packages needed to run the scripts, run the following in the project root:
+```
+pip3 install -r requirements.txt
+```
+
+# Training the ensemble
+
+Choose the models for the ensemble and put their names into [models_active.txt](models_active.txt).
+
+ 
+
+After that, run 
+```
+python3 train.py
+```
+
+For testing purposes:
+
+```python3 train.py -e```     
+(only generates the results.json files with the ensemble)
+
+```python3 train.py -t```   
+(only trains the models without first generating results)
+
+
+
+# Using the sharknado
+
+Put your instances.jsonl and (optional) the media folder in the "data" directory.
+
+Then, run 
+```
+python3 predict.py OUTPUTPATH
+```
+

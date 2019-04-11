@@ -1,4 +1,5 @@
 data/
 docker-images/
 out/
+sharknado_models/
 docker-compose.yml

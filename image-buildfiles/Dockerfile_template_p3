@@ -1,0 +1,19 @@
+FROM ubuntu:16.04
+
+MAINTAINER adriansteffan "adrian.steffan@hotmail.de"
+
+RUN apt-get update -y && \
+    apt-get install -y python3 python3-pip
+
+COPY ./requirements.txt /home/VMNAME/requirements.txt
+
+WORKDIR /home/VMNAME
+
+COPY . /home/VMNAME
+
+RUN pip3 install --upgrade pip 
+
+RUN pip3 install -r requirements.txt
+
+CMD python3 SCRIPT -i data -o out/VMNAME
+

@@ -1,0 +1,17 @@
+FROM ubuntu:16.04
+
+MAINTAINER adriansteffan "adrian.steffan@hotmail.de"
+
+RUN apt-get update -y && \
+    apt-get install -y python-pip python-dev
+
+COPY ./requirements.txt /home/VMANME/requirements.txt
+
+WORKDIR /home/VMNAME
+
+COPY . /home/VMNAME
+
+RUN pip install -r requirements.txt
+
+
+CMD python SCRIPT -i data -o out/VMNAME
