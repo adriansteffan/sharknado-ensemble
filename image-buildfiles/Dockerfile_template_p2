@@ -3,15 +3,17 @@ FROM ubuntu:16.04
 MAINTAINER adriansteffan "adrian.steffan@hotmail.de"
 
 RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev
+    apt-get install -y python python-pip
 
-COPY ./requirements.txt /home/VMANME/requirements.txt
+COPY ./requirements.txt /home/VMNAME/requirements.txt
 
 WORKDIR /home/VMNAME
 
 COPY . /home/VMNAME
 
+RUN pip install --upgrade pip 
+
 RUN pip install -r requirements.txt
 
-
 CMD python SCRIPT -i data -o out/VMNAME
+

@@ -1,6 +1,12 @@
 # Sharknado Ensemble
 
-#TODO ABOUT
+The sharknado is a continuation of the work we did in Greifswald at a summer academy of the German Scholarship Foundation in 2018. The aim was to develop a classifier that detects clickbaity twitter posts linking to news articles. 
+
+Rather than processing the post itself, the sharknado consults the evaluations of all models submitted to the [Clickbait Challenge 2017](https://www.clickbait-challenge.org/) and runs a machine learning algorithm across those to classify a given post. As the competition teams used certain species of fish as the names for their models, sharknado seemed like a fitting name for this approach.
+
+The data pipeline makes up the main portion of the project as of now: Most of the submitted models have been migrated from their competition vms to docker images. This simplifies access to the predictions they offer. The sharknado utilizes docker compose to first get the evaluation of the standalone models submitted by the competing teams and then runs a random forest regressor across those results. 
+
+The testrun we did on the final competition evaluation data in summer 2018 outperformed the standalone models by a respectable margin and we are currently trying to replicate this in a fully functional implementation of the sharknado.
 
 ## Prerequisites
 
@@ -28,24 +34,20 @@ If you do not have them already, simply paste the below into your console:
     ./setup_first.sh 
     ```
 3. Download the prebuilt docker images from [TODO] and place the tar into the root of the project
-4. Put your dataset into the "data" directory (download the datasets from [the official challange page](https://www.clickbait-challenge.org/))
+4. Put your dataset into the "data" directory (download the datasets from [the official challenge page](https://www.clickbait-challenge.org/))
 5. Choose the models for the ensemble and put their names into [models_active.txt](models_active.txt).
-6.  Run
-    ``` 
-    ./setup_second.sh 
-    ```
 
 
 
 # Detailed Setup
 ## Using the prebuilt docker images
 
-#TODO
+#TODO A bundle of the docker images will be provided as soon as an agreement is met on how and where to host it.
 
 ## (Optional) Creating the docker images from the competition VMs using premade files
 
 This repository holds the files required to build your own docker images if you have acess to the Clickbait 2017 VMS on [TIRA](https://www.tira.io/task/clickbait-detection/). They are located in their corresponding folders in [image-buildfiles](image-buildfiles). 
-Replace "VMNAME" with the username of the entry you are trying to containerize.
+( Replace "VMNAME" with the username of the entry you are trying to containerize in the next steps).
 
 1. Download the /home/VMNAME folder from the VM
 2. copy the contents of the image-buildfiles/VMNAME into the downloaded folder
@@ -77,6 +79,8 @@ Alternatively, you can create the Dockerfile and the requirements.txt yourself. 
         ./pipreqs /path/to/project/root
         ```
         A tailored requirements.txt will be created at the project root. 
+
+    (note: Some of the vms use anaconda instead of a regular python environment. Step 2 can be skipped in this case. Any errors downlaoding 2 specific files of these vms are probably caused by broken symlinks in the anaconda directory, you can savely ignore those.)
 
 3. Choose one of the Dockerfiles in [image-buildfiles](image-buildfiles) based on the python version used and fit it to the VM you are working with. The CMD line requires the command that ultimately runs the model, you can find it on the TIRA dashboard of the VM.
 

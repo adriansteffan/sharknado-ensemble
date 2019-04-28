@@ -1,0 +1,1 @@
+python3 clickbait/runmodel.py clickbait/clfRF_regressor_nestimators400_maxdepth_20_60features_180.pkl $inputDataset $outputDir

@@ -1,0 +1,13 @@
+numpy==1.13.1
+nltk==3.2.4
+similar_text==0.2.0
+jsonlines==1.2.0
+pandas==0.20.3
+Pyphen==0.9.4
+setuptools==20.7.0
+pyOpenSSL==19.0.0
+cryptography==2.6.1
+protobuf==3.7.1
+mock==2.0.0
+simplejson==3.16.0
+scikit_learn==0.20.3

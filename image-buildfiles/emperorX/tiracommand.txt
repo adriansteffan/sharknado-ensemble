@@ -1,0 +1,1 @@
+/home/emperor/scripts/clickbait_regression.sh -i $inputDataset -o $outputDir

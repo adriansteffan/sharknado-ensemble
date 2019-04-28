@@ -1,0 +1,3 @@
+./myClassifier.py -i $inputDataset -o $outputDir
+
+uses pythopn3

@@ -1,0 +1,4 @@
+python3 /home/clickbait17-baseline/clickbait-detection/src-py/predict.py $inputDataset/instances.jsonl $outputDir/results.jsonl
+
+
+/home/clickbait17-baseline/clickbait-detection/src-py

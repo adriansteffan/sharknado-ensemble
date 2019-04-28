@@ -1,0 +1,32 @@
+Images having issues while...
+
+[Running]
+
+pike
+  requirements.txt incomplete , pipreqs does not create a complete one, execution fails -> needs complete requirements.txt and rebuild
+
+houndshark
+  requirements.txt incomplete , pipreqs does not create a complete one, execution fails -> needs complete requirements.txt and rebuild
+  which software was used? (they have multiple models on Tira, no indication on which one they submitted)
+
+emperor
+   issue with filepaths, "out/emperor/results.jsonl not found" when 
+
+pineapplefish
+  random value errors when executing -> crashing
+  really slow when executing
+
+clickbait17-baseline
+  nltk.download() -> corpora/wordnet.zip/wordnet/ -> seems to be missing some nltk resources
+
+
+[Build Image]
+
+whitebait
+  requirements.txt broken , pipreqs does not create a valid one, image build fails
+
+[Access VM]
+
+torpedo 
+  SSH login password not the same as TIRA Access
+  which software was used? 
