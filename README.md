@@ -22,7 +22,7 @@ docker-compose
 
 If you do not have them already, simply paste the below into your console:
 ```
- sudo apt-get python3 python3-pip docker docker-compose
+ sudo apt-get install python3 python3-pip docker docker-compose
 ```
 
 
