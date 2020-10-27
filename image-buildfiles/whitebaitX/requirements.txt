@@ -1,5 +1,5 @@
 PyYAML==3.12
-cryptography==1.2.3
+cryptography==3.2
 lxml==3.5.0
 Cython==0.29.7
 ipython==7.5.0
