@@ -1,4 +1,4 @@
-PyYAML==3.12
+PyYAML==5.4
 cryptography==1.2.3
 lxml==3.5.0
 Cython==0.29.7
