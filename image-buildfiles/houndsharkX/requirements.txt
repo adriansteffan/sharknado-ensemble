@@ -9,7 +9,7 @@ backports.functools_lru_cache==1.5
 bllipparser==2016.9.11
 protobuf==3.7.1
 ipaddr==2.2.0
-lxml==4.3.3
+lxml==4.6.3
 matplotlib==3.0.3
 ndg_httpsclient==0.5.1
 networkx==2.3
