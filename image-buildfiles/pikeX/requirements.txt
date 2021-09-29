@@ -1,5 +1,5 @@
 numpy==1.13.1
-nltk==3.2.4
+nltk==3.6.3
 similar_text==0.2.0
 jsonlines==1.2.0
 pandas==0.20.3
