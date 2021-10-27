@@ -10,7 +10,7 @@ cElementTree==1.0.2-20050302
 cffi==1.12.3
 charade==1.0.3
 cntk==2.7
-dask==1.2.0
+dask==2021.10.0
 ed25519ll==0.6
 elementtree==1.2.6-20050316
 flake8==3.7.7
