@@ -2,7 +2,7 @@ PyYAML==3.12
 cryptography==1.2.3
 lxml==3.5.0
 Cython==0.29.7
-ipython==7.5.0
+ipython==7.16.3
 Image==1.5.27
 pyOpenSSL==19.0.0
 Pillow==6.0.0
