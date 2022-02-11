@@ -7,7 +7,7 @@ setuptools==20.7.0
 pyOpenSSL==19.0.0
 backports.functools_lru_cache==1.5
 bllipparser==2016.9.11
-protobuf==3.7.1
+protobuf==3.15.0
 ipaddr==2.2.0
 lxml==4.3.3
 matplotlib==3.0.3
