@@ -4,7 +4,7 @@ similar_text==0.2.0
 jsonlines==1.2.0
 pandas==0.20.3
 Pyphen==0.9.4
-setuptools==20.7.0
+setuptools==65.5.1
 pyOpenSSL==19.0.0
 cryptography==2.6.1
 protobuf==3.7.1
