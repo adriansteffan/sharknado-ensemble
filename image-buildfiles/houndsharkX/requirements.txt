@@ -3,7 +3,7 @@ gensim==2.3.0
 certifi==2017.7.27.1
 pandas==0.20.3
 scipy==0.19.1
-setuptools==20.7.0
+setuptools==65.5.1
 pyOpenSSL==19.0.0
 backports.functools_lru_cache==1.5
 bllipparser==2016.9.11
